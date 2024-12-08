@@ -28,7 +28,7 @@ const Navbar = () => {
      <span className='hover:bg-gray-200 rounded-md'><Image src='/images/profile.png' alt='logo' width={28} height={28} /> </span>
         <span  className='hover:bg-gray-200 rounded-md'><Image src='/images/search.png' alt='logo' width={28} height={28} /></span>
         <span  className='hover:bg-gray-200 rounded-md'><Image src='/images/heart.png' alt='logo' width={28} height={28} /></span>
-        <span  className='hover:bg-gray-200 rounded-md'><Image src='/images/shopping-cart.png' alt='logo' width={28} height={28} /></span>
+        <Link href ="/cart">  <span  className='hover:bg-gray-200 rounded-md'><Image src='/images/shopping-cart.png' alt='logo' width={28} height={28} /></span> </Link>
      </div>
      {/* hamburger */}
      <div className="md:hidden flex text-black ">
