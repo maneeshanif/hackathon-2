@@ -25,10 +25,10 @@ const Navbar = () => {
         </ul>
      </div>
      <div className='h-[24px] w-[290px] hidden md:flex justify-between '>
-     <span><Image src='/images/profile.png' alt='logo' width={28} height={28} /> </span>
-        <span><Image src='/images/search.png' alt='logo' width={28} height={28} /></span>
-        <span><Image src='/images/heart.png' alt='logo' width={28} height={28} /></span>
-        <span><Image src='/images/shopping-cart.png' alt='logo' width={28} height={28} /></span>
+     <span className='hover:bg-gray-200 rounded-md'><Image src='/images/profile.png' alt='logo' width={28} height={28} /> </span>
+        <span  className='hover:bg-gray-200 rounded-md'><Image src='/images/search.png' alt='logo' width={28} height={28} /></span>
+        <span  className='hover:bg-gray-200 rounded-md'><Image src='/images/heart.png' alt='logo' width={28} height={28} /></span>
+        <span  className='hover:bg-gray-200 rounded-md'><Image src='/images/shopping-cart.png' alt='logo' width={28} height={28} /></span>
      </div>
      {/* hamburger */}
      <div className="md:hidden flex text-black ">
@@ -49,10 +49,10 @@ const Navbar = () => {
      
           </ul>
           <div className=' flex mx-2 justify-between '>
-        <span><Image src='/images/profile.png' alt='logo' width={28} height={28} /> </span>
-        <span><Image src='/images/search.png' alt='logo' width={28} height={28} /></span>
-        <span><Image src='/images/heart.png' alt='logo' width={28} height={28} /></span>
-        <span><Image src='/images/shopping-cart.png' alt='logo' width={28} height={28} /></span>
+        <span  className='hover:bg-gray-200 rounded-md'><Image src='/images/profile.png' alt='logo' width={28} height={28} /> </span>
+        <span  className='hover:bg-gray-200 rounded-md'><Image src='/images/search.png' alt='logo' width={28} height={28} /></span>
+        <span  className='hover:bg-gray-200 rounded-md'><Image src='/images/heart.png' alt='logo' width={28} height={28} /></span>
+        <span  className='hover:bg-gray-200 rounded-md'><Image src='/images/shopping-cart.png' alt='logo' width={28} height={28} /></span>
      </div>
         </div>
       )}

@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 const Footer = () => {
   return (
@@ -20,10 +21,11 @@ const Footer = () => {
             <div className='h-full md:h-[312px] w-[68px] space-y-2 md:space-y-0 flex flex-col justify-between '>
               <h2 className='font-medium text-[16px] text-mygray'>Links</h2>
               <ul className='h-full py-2 md:py-0   md:h-[233px] w-[68px] flex flex-col justify-between '>
-              <li className='font-medium text-[16px] text-black'>Home</li>
-              <li className='font-medium text-[16px] text-black'>Shop</li>
-              <li className='font-medium text-[16px] text-black'>About</li>
-              <li className='font-medium text-[16px] text-black'>Contact</li>
+              <Link href ="/" className=' hover:text-golden hover:underline font-medium text-[16px] text-black' > <li>Home </li> </Link>
+              <Link href ="/shop" className=' hover:text-golden hover:underline font-medium text-[16px] text-black' > <li>Shop </li> </Link>
+              <Link href ="/blog" className=' hover:text-golden hover:underline font-medium text-[16px] text-black' > <li>Blog </li> </Link>
+              <Link href ="/contact" className=' hover:text-golden hover:underline font-medium text-[16px] text-black' > <li>Contact </li> </Link>
+    
               </ul>
             </div>
 

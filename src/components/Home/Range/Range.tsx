@@ -3,7 +3,7 @@ import React from 'react'
 
 const Range = () => {
   return (
-    <section className='h-full flex  flex-col items-center  justify-center border-b border-gray-400  w-full bg-white'>
+    <section className='h-full flex  flex-col items-center  justify-center   w-full bg-white'>
         <div className='h-full md:h-[685px] w-full md:w-[1188px] flex items-center flex-col space-y-4 md:space-y-0 justify-between '>
           <div className='h-[76px] md:w-[559px] flex items-center flex-col '>
              <h2 className='text-[24px] md:text-[32px] font-bold text-myblack'>Browse The Range</h2>

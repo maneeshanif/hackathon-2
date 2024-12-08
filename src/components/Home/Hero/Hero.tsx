@@ -5,7 +5,7 @@ import React from 'react'
 const Hero = () => {
   return (
     <>
-    <section className='h-screen md:h-[716px] flex  flex-col items-center space-y-4 justify-center border-b border-gray-400  w-full bg-white'>
+    <section className='h-screen md:h-[716px] flex  flex-col items-center space-y-4 justify-center   w-full bg-white'>
         <div className='md:h-[716px] w-[90%] '>
        <Image src='/images/hero.png' alt='hero' width={1440} height={716} />
        </div>

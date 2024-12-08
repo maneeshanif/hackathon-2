@@ -19,7 +19,7 @@ const Demo = () => {
             </div>
             <div className='h-full w-[400px] flex flex-col justify-between  '>
             <Image src={'/images/filter/palamachi.png'} alt='demo' width={400} height={372} />
-            <Image src={'/images/filter/indicator.png'} alt='demo' width={120} height={27} />
+            <Image src={'/images/filter/indicator.png'} alt='demo' width={120} height={27} className='h-[27px] w-[120px]' />
             </div>
         </div>
     </section>

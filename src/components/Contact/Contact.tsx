@@ -16,7 +16,7 @@ const Contact = () => {
       </div>
       </div>
       {/* conatct from */}
-      <div className='h-[1144px] w-[90%] md:w-[1440px] flex flex-col space-y-2 px-12 items-center justify-center '>
+      <div className='h-[1144px] w-[90%] md:w-[1440px] flex flex-col space-y-2 py-12 items-center justify-center '>
         <div className='h-[90px] w-[90%] md:w-[680px] flex flex-col items-center justify-center '>
            <h2 className='font-semibold text-[20px] md:text-[32px] text-black'>Get In Touch With Us</h2> 
            <p className='font-normal text-[12px] md:text-[16px] text-mygray'>For More Information About Our Product & Services. Please Feel Free To Drop Us An Email. Our Staff Always Be There To Help You Out. Do Not Hesitate!</p>

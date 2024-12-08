@@ -71,7 +71,7 @@ const Card:card[] =[{
 
 const Products = () => {
   return (
-    <section className='h-full flex py-10  items-center  justify-center border-b border-gray-400  w-full bg-white'>
+    <section className='h-full flex py-10  items-center  justify-center   w-full bg-white'>
         <div className='h-full md:h-[1084px] w-full md:w-[1236px] flex flex-col items-center justify-between py-1 bg-white'>
           <h1 className='text-[40px] font-bold text-myblack'>Our Products</h1>
           <div className=' md:h-[900px] w-[90%] md:w-[1236px] md:px-0 px-12 grid grid-cols-1 md:grid-cols-4 gap-3 bg-white'>
