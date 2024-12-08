@@ -39,86 +39,86 @@ const Card:card[] =[{
     oldPrize: ''
 },
 {
-    image: '/images/products/5.png',
-    title: 'Grifo',
-    description: 'Night lamp',
-    prize: 'Rp 1.500.000',
-    oldPrize: ''
-},
-{
-    image: '/images/products/6.png',
-    title: 'Muggo',
+    image: '/images/products/1.png',
+    title: 'Syltherine',
     description: 'Stylish cafe chair',
     prize: 'Rp 2.500.000',
     oldPrize: 'Rp 3.500.000'
 },
 {
-    image: '/images/products/7.png',
-    title: 'Pingky',
-    description: 'Cute bed set',
+    image: '/images/products/2.png',
+    title: 'Leviosa',
+    description: 'Stylish cafe chair',
+    prize: 'Rp 2.500.000',
+    oldPrize: ''
+},
+{
+    image: '/images/products/3.png',
+    title: 'Lolito',
+    description: 'Luxury big sofa',
     prize: 'Rp 7.000.000',
     oldPrize: 'Rp 14.000.000'
 },
 {
-    image: '/images/products/8.png',
-    title: 'Potty',
-    description: 'Minimalist flower pot',
+    image: '/images/products/4.png',
+    title: 'Respira',
+    description: 'Outdoor bar table and stool',
     prize: 'Rp 500.000',
     oldPrize: ''
 },
 {
-    image: '/images/products/8.png',
-    title: 'Potty',
-    description: 'Minimalist flower pot',
+    image: '/images/products/1.png',
+    title: 'Syltherine',
+    description: 'Stylish cafe chair',
+    prize: 'Rp 2.500.000',
+    oldPrize: 'Rp 3.500.000'
+},
+{
+    image: '/images/products/2.png',
+    title: 'Leviosa',
+    description: 'Stylish cafe chair',
+    prize: 'Rp 2.500.000',
+    oldPrize: ''
+},
+{
+    image: '/images/products/3.png',
+    title: 'Lolito',
+    description: 'Luxury big sofa',
+    prize: 'Rp 7.000.000',
+    oldPrize: 'Rp 14.000.000'
+},
+{
+    image: '/images/products/4.png',
+    title: 'Respira',
+    description: 'Outdoor bar table and stool',
     prize: 'Rp 500.000',
     oldPrize: ''
 },
 {
-    image: '/images/products/8.png',
-    title: 'Potty',
-    description: 'Minimalist flower pot',
-    prize: 'Rp 500.000',
+    image: '/images/products/1.png',
+    title: 'Syltherine',
+    description: 'Stylish cafe chair',
+    prize: 'Rp 2.500.000',
+    oldPrize: 'Rp 3.500.000'
+},
+{
+    image: '/images/products/2.png',
+    title: 'Leviosa',
+    description: 'Stylish cafe chair',
+    prize: 'Rp 2.500.000',
     oldPrize: ''
 },
 {
-    image: '/images/products/8.png',
-    title: 'Potty',
-    description: 'Minimalist flower pot',
-    prize: 'Rp 500.000',
-    oldPrize: ''
+    image: '/images/products/3.png',
+    title: 'Lolito',
+    description: 'Luxury big sofa',
+    prize: 'Rp 7.000.000',
+    oldPrize: 'Rp 14.000.000'
 },
 {
-    image: '/images/products/8.png',
-    title: 'Potty',
-    description: 'Minimalist flower pot',
-    prize: 'Rp 500.000',
-    oldPrize: ''
-},
-{
-    image: '/images/products/8.png',
-    title: 'Potty',
-    description: 'Minimalist flower pot',
-    prize: 'Rp 500.000',
-    oldPrize: ''
-},
-{
-    image: '/images/products/8.png',
-    title: 'Potty',
-    description: 'Minimalist flower pot',
-    prize: 'Rp 500.000',
-    oldPrize: ''
-},
-{
-    image: '/images/products/8.png',
-    title: 'Potty',
-    description: 'Minimalist flower pot',
-    prize: 'Rp 500.000',
-    oldPrize: ''
-},
-{
-    image: '/images/products/8.png',
-    title: 'Potty',
-    description: 'Minimalist flower pot',
+    image: '/images/products/4.png',
+    title: 'Respira',
+    description: 'Outdoor bar table and stool',
     prize: 'Rp 500.000',
     oldPrize: ''
 },

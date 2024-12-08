@@ -9,7 +9,7 @@ const Range = () => {
              <h2 className='text-[24px] md:text-[32px] font-bold text-myblack'>Browse The Range</h2>
               <p className='text-[14px] md:text-[20px] font-normal text-mygray'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
-          <div className='md:h-[537px] w-full grid grid-cols-1 md:grid-cols-3 px-7 sm:px-0 gap-6 '>
+          <div className='md:h-[537px] w-full grid grid-cols-1 md:grid-cols-3 px-6 sm:px-0 gap-6 '>
             <div className='h-full w-[381px] flex flex-col items-center justify-between bg-white'>
                 <Image src='/images/dining.png' alt='range' width={762} height={508} />
                 <p className='text-[24px] font-semibold text-myblack'>Dining</p>

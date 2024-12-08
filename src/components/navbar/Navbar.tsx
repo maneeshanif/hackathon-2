@@ -40,7 +40,7 @@ const Navbar = () => {
 
     {/* mobile menu */}
     {isOpen &&(
-        <div className="absolute top-28   w-[95%] pb-10 border-t-2  border-b  border-gray-200  bg-white ">
+        <div className="absolute top-28 z-10  w-[95%] pb-10 border-t-2  border-b  border-gray-200  bg-white ">
           <ul className="flex flex-col gap-2 px-4 py-2">
           <Link href ="/" className='text-black hover:text-golden hover:underline' > <li>Home </li> </Link>
           <Link href ="/shop" className='text-black  hover:text-golden hover:underline ' > <li>Shop</li> </Link>
