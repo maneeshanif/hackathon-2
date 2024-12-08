@@ -20,8 +20,8 @@ const Navbar = () => {
         <ul className='flex items-center justify-between'>
         <Link href ="/" className='text-black hover:text-golden active::underline' > <li>Home </li> </Link>
           <Link href ="/shop" className='text-black  hover:text-golden hover:underline' > <li>Shop</li> </Link>
-          <Link href ="/about" className='text-black  hover:text-golden hover:underline' > <li>About</li> </Link>
-          <Link href ="/conatct" className='text-black  hover:text-golden hover:underline' > <li>Contact </li> </Link>
+          <Link href ="/blog" className='text-black  hover:text-golden hover:underline' > <li>Blog</li> </Link>
+          <Link href ="/contact" className='text-black  hover:text-golden hover:underline' > <li>Contact </li> </Link>
         </ul>
      </div>
      <div className='h-[24px] w-[290px] hidden md:flex justify-between '>
@@ -44,8 +44,8 @@ const Navbar = () => {
           <ul className="flex flex-col gap-2 px-4 py-2">
           <Link href ="/" className='text-black hover:text-golden hover:underline' > <li>Home </li> </Link>
           <Link href ="/shop" className='text-black  hover:text-golden hover:underline ' > <li>Shop</li> </Link>
-          <Link href ="/about" className='text-black  hover:text-golden hover:underline' > <li>About</li> </Link>
-          <Link href ="/conatct" className='text-black  hover:text-golden hover:underline' > <li>Contact </li> </Link>
+          <Link href ="/blog" className='text-black  hover:text-golden hover:underline' > <li>Blog</li> </Link>
+          <Link href ="/contact" className='text-black  hover:text-golden hover:underline' > <li>Contact </li> </Link>
      
           </ul>
           <div className=' flex mx-2 justify-between '>
