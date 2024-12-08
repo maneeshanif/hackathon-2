@@ -11,6 +11,7 @@ export default {
   	extend: {
   		colors: {
   			background: '#FFF3E3',
+			peach:'#F9F1E7',
 			golden:'#B88E2F',
   			foreground: '#9F9F9F',
 			myblack:'#333333',

@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image'
 import { useState } from "react";
+import Link from 'next/link'
 import { LuAlignJustify } from "react-icons/lu";
 import {  RxCross1} from "react-icons/rx";
 
@@ -17,10 +18,10 @@ const Navbar = () => {
      <Image src='/images/logo.png' alt='logo' width={185} height={41} />
      <div className='h-[24px] w-[430px] hidden md:grid '>
         <ul className='flex items-center justify-between'>
-            <li>Home</li>
-            <li>Shop</li>
-            <li>About</li>
-            <li>Contact</li>
+        <Link href ="/" className='text-black hover:text-golden active::underline' > <li>Home </li> </Link>
+          <Link href ="/shop" className='text-black  hover:text-golden hover:underline' > <li>Shop</li> </Link>
+          <Link href ="/about" className='text-black  hover:text-golden hover:underline' > <li>About</li> </Link>
+          <Link href ="/conatct" className='text-black  hover:text-golden hover:underline' > <li>Contact </li> </Link>
         </ul>
      </div>
      <div className='h-[24px] w-[290px] hidden md:flex justify-between '>
@@ -41,10 +42,11 @@ const Navbar = () => {
     {isOpen &&(
         <div className="absolute top-28   w-[95%] pb-10 border-t-2  border-b  border-gray-200  bg-white ">
           <ul className="flex flex-col gap-2 px-4 py-2">
-          <li>Home</li>
-            <li>Shop</li>
-            <li>About</li>
-            <li>Contact</li>
+          <Link href ="/" className='text-black hover:text-golden hover:underline' > <li>Home </li> </Link>
+          <Link href ="/shop" className='text-black  hover:text-golden hover:underline ' > <li>Shop</li> </Link>
+          <Link href ="/about" className='text-black  hover:text-golden hover:underline' > <li>About</li> </Link>
+          <Link href ="/conatct" className='text-black  hover:text-golden hover:underline' > <li>Contact </li> </Link>
+     
           </ul>
           <div className=' flex mx-2 justify-between '>
         <span><Image src='/images/profile.png' alt='logo' width={28} height={28} /> </span>
