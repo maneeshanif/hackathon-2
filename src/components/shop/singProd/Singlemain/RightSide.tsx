@@ -1,12 +1,22 @@
 import React from 'react'
 import Image from 'next/image'
+import CardProdProps  from '@/types/product'
+import ProductFetch from '../../../../utils/ProductFetch'
 
-const RightSide = () => {
+
+const products = await ProductFetch
+
+const RightSide = ({id}:{id:string}) => {
+
+  const product = products.find((product:CardProdProps) => product._id === id)
+  // console.log(product)
+     
+
   return (
     <div className='h-[703px]  w-full md:w-[606px]  flex flex-col md:px-0 px-4 items-start justify-between '>
         <div className='w-full h-[460px] pb-10 border-b border-mygray  flex flex-col items-start justify-between'>
-    <h1 className='font-normal text-[42px] text-black'>Asgaard sofa</h1>
-    <p className='font-medium text-[24px] text-mygray'>Rs. 250,000.00</p>
+    <h1 className='font-normal text-[42px] text-black'>{product?.title}</h1>
+    <p className='font-medium text-[24px] text-mygray'>Rs. {product?.price}</p>
     {/* reviews */}
     <div className='h-[20px] w-[264px] flex justify-between items-center '>
       <Image src={'/images/products/rewstar.png'} alt='hero' width={124} height={20}  className='w-[124px] h-[20px] border-r-2 border-black'/>
@@ -48,15 +58,15 @@ const RightSide = () => {
     <div className=' h-[150px] w-full flex flex-col items-start pb-8 justify-between '>
     <div className="flex items-center gap-8">
           <span className="w-24 text-muted-foreground">SKU</span>:
-          <span className="font-medium">SS001</span>
+          <span className="font-medium">{product?._id}</span>
         </div>
     <div className="flex items-center gap-8">
           <span className="w-24 text-muted-foreground">Category</span>:
-          <span className="font-medium">Sofas</span>
+          <span className="font-medium">{product?.tags[0]}</span>
         </div>
     <div className="flex items-center gap-8">
           <span className="w-24 text-muted-foreground">Tags</span>:
-          <span className="font-medium">Sofas,Chair,Home,Shop</span>
+          <span className="font-medium">{product?.tags}</span>
         </div>
     <div className="flex items-center gap-8">
           <span className="w-24 text-muted-foreground">Share</span>:

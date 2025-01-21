@@ -1,248 +1,180 @@
-import CustomerCare from '@/components/CustomerCare/CustomerCare'
-import Image from 'next/image'
-import React from 'react'
+"use client";
+import React, { useState, useEffect } from 'react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import ProductCard from '../prodcard/CardProd';
+import ProductCardSkeleton from '../prodcard/CardSkeleton';
+import ShopPagination from './Pagination';
+import Image from 'next/image';
+import ProductFetch from '../../../utils/ProductFetch';
+import CustomerCare from '@/components/CustomerCare/CustomerCare';
 
-interface card {
-    image: string
-    title: string
-    description: string
-    prize: string,
-    oldPrize: string
+
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  discountPercentage: number;
+  isNew: boolean;
+  tags: string[];
+  imageUrl: string;
 }
-
-const Card:card[] =[{
-    image: '/images/products/1.png',
-    title: 'Syltherine',
-    description: 'Stylish cafe chair',
-    prize: 'Rp 2.500.000',
-    oldPrize: 'Rp 3.500.000'
-},
-{
-    image: '/images/products/2.png',
-    title: 'Leviosa',
-    description: 'Stylish cafe chair',
-    prize: 'Rp 2.500.000',
-    oldPrize: ''
-},
-{
-    image: '/images/products/3.png',
-    title: 'Lolito',
-    description: 'Luxury big sofa',
-    prize: 'Rp 7.000.000',
-    oldPrize: 'Rp 14.000.000'
-},
-{
-    image: '/images/products/4.png',
-    title: 'Respira',
-    description: 'Outdoor bar table and stool',
-    prize: 'Rp 500.000',
-    oldPrize: ''
-},
-{
-    image: '/images/products/1.png',
-    title: 'Syltherine',
-    description: 'Stylish cafe chair',
-    prize: 'Rp 2.500.000',
-    oldPrize: 'Rp 3.500.000'
-},
-{
-    image: '/images/products/2.png',
-    title: 'Leviosa',
-    description: 'Stylish cafe chair',
-    prize: 'Rp 2.500.000',
-    oldPrize: ''
-},
-{
-    image: '/images/products/3.png',
-    title: 'Lolito',
-    description: 'Luxury big sofa',
-    prize: 'Rp 7.000.000',
-    oldPrize: 'Rp 14.000.000'
-},
-{
-    image: '/images/products/4.png',
-    title: 'Respira',
-    description: 'Outdoor bar table and stool',
-    prize: 'Rp 500.000',
-    oldPrize: ''
-},
-{
-    image: '/images/products/1.png',
-    title: 'Syltherine',
-    description: 'Stylish cafe chair',
-    prize: 'Rp 2.500.000',
-    oldPrize: 'Rp 3.500.000'
-},
-{
-    image: '/images/products/2.png',
-    title: 'Leviosa',
-    description: 'Stylish cafe chair',
-    prize: 'Rp 2.500.000',
-    oldPrize: ''
-},
-{
-    image: '/images/products/3.png',
-    title: 'Lolito',
-    description: 'Luxury big sofa',
-    prize: 'Rp 7.000.000',
-    oldPrize: 'Rp 14.000.000'
-},
-{
-    image: '/images/products/4.png',
-    title: 'Respira',
-    description: 'Outdoor bar table and stool',
-    prize: 'Rp 500.000',
-    oldPrize: ''
-},
-{
-    image: '/images/products/1.png',
-    title: 'Syltherine',
-    description: 'Stylish cafe chair',
-    prize: 'Rp 2.500.000',
-    oldPrize: 'Rp 3.500.000'
-},
-{
-    image: '/images/products/2.png',
-    title: 'Leviosa',
-    description: 'Stylish cafe chair',
-    prize: 'Rp 2.500.000',
-    oldPrize: ''
-},
-{
-    image: '/images/products/3.png',
-    title: 'Lolito',
-    description: 'Luxury big sofa',
-    prize: 'Rp 7.000.000',
-    oldPrize: 'Rp 14.000.000'
-},
-{
-    image: '/images/products/4.png',
-    title: 'Respira',
-    description: 'Outdoor bar table and stool',
-    prize: 'Rp 500.000',
-    oldPrize: ''
-},
-
-]
 
 const Shop = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const [itemsPerPage, setItemsPerPage] = useState(16);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+
+    const fetchProducts = async () => {
+            const data = await ProductFetch;
+            setProducts(data);
+            setFilteredProducts(data);
+       
+          };
+     fetchProducts();
+  
+ 
+    setLoading(false);
+  }, []);
+
+
+  
+  type SortOrder = 'default' | 'price-asc' | 'price-desc' | 'name-asc' | 'name-desc';
+  
+  const handleSort = (value: SortOrder) => {
+    let sorted = [...filteredProducts];
+    switch (value) {
+      case 'price-asc':
+        sorted.sort((a: Product, b: Product) => a.price - b.price);
+        break;
+      case 'price-desc':
+        sorted.sort((a: Product, b: Product) => b.price - a.price);
+        break;
+      case 'name-asc':
+        sorted.sort((a: Product, b: Product) => a.title.localeCompare(b.title));
+        break;
+      case 'name-desc':
+        sorted.sort((a: Product, b: Product) => b.title.localeCompare(a.title));
+        break;
+      default:
+        sorted = [...products];
+    }
+    setFilteredProducts(sorted);
+    setCurrentPage(1);
+  };
+
+
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const displayedProducts = filteredProducts.slice(startIndex, startIndex + itemsPerPage);
+
   return (
-    <>
-    <section className='min-h-full w-full flex flex-col  bg-white items-center  '>
-        {/* banner part */}
-       <div className='h-full md:h-[416px] w-[90%] md:w-[1440px] flex flex-col  items-center justify-center'>
-       <div className=' md:h-[316px] relative w-[90%] md:w-[1440px] '>
-      <Image src={'/images/shopbenner.png'} alt='hero' width={1440} height={316} />
-      <div className='w-[150px] md:w-[124px] absolute translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%] h-[90%] flex flex-col justify-center items-center md:h-[84px] '>
-        <h1 className='font-medium text-4xl text-black'>Shop</h1>
-        <p className='font-normal text-[16px] text-mygray'>home &gt; shop</p>
+    <div className='min-h-full w-full flex flex-col bg-white items-center'>
+      {/* Banner */}
+      <div className='h-full md:h-[316px] w-[90%] md:w-[1440px] flex flex-col items-center justify-center'>
+        <div className='md:h-[316px] relative w-[90%] md:w-[1440px]'>
+          <Image
+            width={1440}
+            height={316}
+            src='/images/shopbenner.png'
+            alt="Shop banner"
+            className="w-full h-full object-cover"
+          />
+          <div className='w-[150px] md:w-[124px] absolute translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%] h-[90%] flex flex-col justify-center items-center md:h-[84px]'>
+            <h1 className='font-medium text-4xl text-black'>Shop</h1>
+            <p className='font-normal text-[16px] text-mygray'>home&gt;Shop</p>
+          </div>
         </div>
       </div>
-     {/* filter */}
-     <div className=' h-[80px] flex items-center justify-center  md:h-[100px] w-full md:w-[1440px] bg-peach'>
-        {/* inner filter */}
-       <div className='h-full md:h-[38px] w-[1240px] flex  flex-col md:flex-row items-center  justify-between'>
-        {/* right side */}
-       <div className='h-full w-full md:w-[500px] flex items-center justify-between  '>
-        {/* box 1 */}
-       <div className='h-[30px] w-[58px] flex items-center '>
-        <Image src={'/images/filter/filter1.png'} alt='hero' width={58} height={30} />
-       </div>
-       {/* box 2 */}
-       <div className='h-[30px] w-[58px] flex  justify-between items-center '>
-        <span className='h-[28px] w-[28px] '><Image src={'/images/filter/filter2.png'} alt='hero' width={28} height={20} /></span>
-        <span className='h-[24px] w-[24px] '><Image src={'/images/filter/filter3.png'} alt='hero' width={24} height={24} /></span>
-       </div>
-       {/* box 3 */}
-      <span className='h-[37px]  md:w-[285px] flex border-l-2 border-black items-center justify-end '>
-        <h2 className='text-[16px] font-semibold text-myblack'>
-        Showing 1–16 of 32 results
-        </h2>
-      </span>
-       </div>
-        {/* left side */}
-       <div className='h-[38px] w-full md:w-[500px] flex justify-between  '>
-        <div className='h-full w-[100px] flex justify-between items-center'>
+
+      {/* Filters */}
+      <div className='h-[80px] px-4 md:px-0 flex items-center justify-center md:h-[100px] w-full md:w-[1440px] bg-peach'>
+        <div className='h-full md:h-[38px] w-[1240px] flex flex-col md:flex-row items-center justify-between'>
+          <div className='h-full w-full md:w-[500px] flex items-center justify-between'>
+                {/* box 1 */}
+         <div className='h-[30px] w-[58px] flex items-center '>
+          <Image src={'/images/filter/filter1.png'} alt='hero' width={58} height={30} />
+         </div>
+         {/* box 2 */}
+         <div className='h-[30px] w-[58px] flex  justify-between items-center '>
+          <span className='h-[28px] w-[28px] '><Image src={'/images/filter/filter2.png'} alt='hero' width={28} height={20} /></span>
+          <span className='h-[24px] w-[24px] '><Image src={'/images/filter/filter3.png'} alt='hero' width={24} height={24} /></span>
+         </div>
+            <span className='h-[37px] md:w-[285px] flex items-center justify-end'>
+              <h2 className='text-[16px] font-semibold text-myblack'>
+                Showing {startIndex + 1}-{Math.min(startIndex + itemsPerPage, filteredProducts.length)} of {filteredProducts.length} results
+              </h2>
+            </span>
+          </div>
+
+          <div className='h-[38px] w-full md:w-[500px] flex items-center justify-between '>
+            <Select onValueChange={(value) => setItemsPerPage(Number(value))} defaultValue="16">
             <p className='text-[16px] font-semibold text-myblack'>Show</p>
-             <span className='h-[38px] w-[38px] flex justify-center items-center bg-white'>16</span>
-        </div>
-        <span>
-        <div className='h-full w-[288px] flex justify-between items-center'>
+              <SelectTrigger className="w-[55px] rounded-none bg-white">
+                <SelectValue placeholder="Show" />
+              </SelectTrigger>
+              <SelectContent className='bg-white'> 
+                {[8, 12, 16, 20].map(num => (
+                  <SelectItem key={num} value={num.toString()}>{num}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
+            <Select onValueChange={handleSort} defaultValue="default">
             <p className='text-[16px] font-semibold text-myblack'>Sort By</p>
-             <span className='h-[38px] w-[188px] flex justify-center items-center bg-white'>Default</span>
+              <SelectTrigger className="w-[188px] bg-white rounded-none">
+                <SelectValue placeholder="Sort By" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="default">Default</SelectItem>
+                <SelectItem value="price-asc">Price: Low to High</SelectItem>
+                <SelectItem value="price-desc">Price: High to Low</SelectItem>
+                <SelectItem value="name-asc">Name: A to Z</SelectItem>
+                <SelectItem value="name-desc">Name: Z to A</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
-        </span>
-       </div>
-       </div>
+      </div>
+
+      {/* Products grid */}
+      <div className='w-[90%] min-h-screen md:w-[1440px] flex flex-col justify-between  pb-10 items-center'>
+        <div className='w-[90%] md:w-[1340px] md:px-auto px-6 grid grid-cols-1 py-6 md:grid-cols-4 gap-2'>
+          {loading ? (
+            Array(8).fill(null).map((_, index) => (
+              <div className='w-full h-screen'  key={index} >
+              <ProductCardSkeleton/>
+              </div>
+            ))
+          ) : (
+            displayedProducts.map((product, index) => (
+              <ProductCard
+                key={index}
+                Product={product}
+              
+              />
+            ))
+          )}
+        </div>
+ 
+        <ShopPagination
+      
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
+            <CustomerCare  />
+      </div>
     </div>
-       </div>
-       {/* products cards */}
-       <div className='h-[7400px] md:h-[1980px] w-[90%] md:w-[1440px] flex flex-col justify-between pb-10 items-center '>
-      
-             
-            <div className=' md:max-h-[1980px] w-[90%] md:w-[1340px] md:px-auto px-6 grid grid-cols-1  md:grid-cols-4  gap-2  '>
-{Card.map((card, index) => (
-   <div key={index} className='w-[285px] h-[446px] border-2 border-gray-200 bg-red-200'>
-     <div className='w-[285px] h-[301px] bg-gray-300'>
-       <Image src={card.image} alt='products' width={285} height={301} />
-     </div>
-       <div className='w-[285px] flex justify-center items-center h-[145px] bg-white' >
-         <div className='w-[249px] flex flex-col justify-between h-[99px] bg-white'>
-             <h1 className='font-semibold text-2xl text-myblack'>{card.title}</h1>
-             <p className='text-mygray text-[16px] font-medium'>{card.description}</p>
-             <div className='flex flex-row justify-between'>
-             <span className='font-semibold text-myblack text-[20px]'>{card.prize} </span> <p className='text-mygray text-[16px] line-through'>{card.oldPrize}</p>
-             </div>
-         </div>
-       </div>
-       </div>
- ))}
- </div> 
-        {/* pagination */}
-        <div className='h-[32px] w-[90%] md:w-[392px] flex justify-between items-center '>
-          <div className='h-[60px] w-[60px] text-white flex justify-center items-center bg-golden hover:bg-white hover:border-2 hover:text-myblack border-golden rounded-md'>1</div>
-          <div className='h-[60px] w-[60px] text-white flex justify-center items-center bg-golden  hover:bg-white hover:border-2 hover:text-myblack border-golden rounded-md'>2</div>
-          <div className='h-[60px] w-[60px] text-white flex justify-center items-center bg-golden  hover:bg-white hover:border-2 hover:text-myblack border-golden rounded-md'>3</div>
-          <div className='h-[60px] w-[98px] text-white flex justify-center items-center bg-golden  hover:bg-white hover:border-2 hover:text-myblack border-golden rounded-md'>Next</div>
-        </div>
+  );
+};
 
-        
-       </div>
-       <CustomerCare />
-
-    </section>
-    
-      
-    </>
-  )
-}
-
-export default Shop
+export default Shop;
 
 
-
-
-
-
-
-
-
-       
-{/* <div className=' h-full w-[90%] md:w-[1440px] md:px-0 px-12 grid grid-cols-1 bg-golden md:grid-cols-4 gap-3 '>
-{Card.map((card, index) => (
-   <div key={index} className='w-[285px] h-[446px] border-2 border-gray-200 bg-red-200'>
-     <div className='w-[285px] h-[301px] bg-gray-300'>
-       <Image src={card.image} alt='products' width={285} height={301} />
-     </div>
-       <div className='w-[285px] flex justify-center items-center h-[145px] bg-white' >
-         <div className='w-[249px] flex flex-col justify-between h-[99px] bg-white'>
-             <h1 className='font-semibold text-2xl text-myblack'>{card.title}</h1>
-             <p className='text-mygray text-[16px] font-medium'>{card.description}</p>
-             <div className='flex flex-row justify-between'>
-             <span className='font-semibold text-myblack text-[20px]'>{card.prize} </span> <p className='text-mygray text-[16px] line-through'>{card.oldPrize}</p>
-             </div>
-         </div>
-       </div>
-       </div>
- ))}
- </div> */}

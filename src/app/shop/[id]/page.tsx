@@ -14,9 +14,9 @@ const page = async (params: pageProps) => {
 
   return (
     <div>
-      <h1>{id}</h1>
-      <SingleProduct />
-      <ProdDesc />
+      {/* <h1>{id}</h1> */}
+      <SingleProduct _id={id} />
+      <ProdDesc _id={id} />
       <RelatedProd />
     </div>
   );
