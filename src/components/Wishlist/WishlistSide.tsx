@@ -53,7 +53,7 @@ export function WishlistSide() {
          <Button variant="ghost" size="icon" className="relative ">
            <Image  src='/images/heart.png' alt='search' height={28} width={28} className='h-8 w-8 ' />
            {wishlistState.items.length > 0 && (
-             <span className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-red-500  text-white text-xs flex items-center justify-center">
+             <span className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-golden  text-white text-xs flex items-center justify-center">
                {wishlistState.items.length}
              </span>
            )}

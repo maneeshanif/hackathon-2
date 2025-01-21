@@ -18,6 +18,7 @@ const page = async (params: pageProps) => {
       <SingleProduct _id={id} />
       <ProdDesc _id={id} />
       <RelatedProd />
+      {/* <RelatedProd currentProductId={id}  /> */}
     </div>
   );
 };

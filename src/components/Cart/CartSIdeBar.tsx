@@ -17,7 +17,7 @@ export function Cart() {
         <Button variant="ghost" size="icon" className="relative ">
           <Image src={'/images/shopping-cart.png'} alt='search' height={28} width={28} className='h-8 w-8 ' />
           {state.items.length > 0 && (
-            <span className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-red-500  text-white text-xs flex items-center justify-center">
+            <span className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-golden  text-white text-xs flex items-center justify-center">
               {state.items.length}
             </span>
           )}
